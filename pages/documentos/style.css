@@ -11,29 +11,144 @@
 }
 
 .filtros {
-    background-color: #fff;
-    border-radius: 8px;
-    height: 120px;
-    width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
 }
-
-#busca {
-    background-color: #fff;
-    border-radius: 8px;
-    width: 45%;
-    height: 50px;
-    position: relative;
-    left: 2%;
-    top: 50px;
+ 
+.filtros > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 200px;
 }
-
+ 
+.filtros label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+ 
+#busca,
 #filtro-tipo {
-    background-color: #fff;
-    border-radius: 8px;
-    width: 45%;
-    height: 50px;
-    position: relative;
-    left: 5%;
-    top: 50px;
+  background-color: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  height: 50px;
+  padding: 0 12px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+#busca:focus,
+#filtro-tipo:focus {
+  outline: 2px solid #1e293b;
+}
+
+.tabela-wrapper {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+  max-height: 420px; /* ajuste conforme precisar */
+  overflow-y: auto;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.tabela-wrapper h2 {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 2;
+  padding-bottom: 16px;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+ 
+th {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 14px;
+  color: #475569;
+}
+ 
+td {
+  padding: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+ 
+.badge.enviado {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+ 
+.badge.pendente {
+  background-color: #fef9c3;
+  color: #ca8a04;
+}
+ 
+/* ── BOTÃO VISUALIZAR ────────────────────────────────────── */
+.btn-visualizar {
+  background-color: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+ 
+.btn-visualizar:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.cabecalho-tabela {
+    background-color: #1e293b;
+    color: #fff;
+}
+
+body {
+  overflow: hidden;
+}
+
+.content {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.tabela-wrapper {
+  overflow-y: auto;
+  max-height: calc(100vh - 350px); /* 350px = espaço do cabeçalho + filtros */
+}
+
+thead th {
+  position: sticky;
+  top: 49px;
+  background-color: #fff;
+  z-index: 1;
+}
