@@ -14,10 +14,11 @@ function bindSidebarEvents(sidebarElement, logoutRedirect) {
   if (logoutLink) {
     logoutLink.addEventListener("click", (event) => {
       event.preventDefault();
+
       const shouldLogout = window.confirm("Deseja realmente sair?");
 
       if (shouldLogout) {
-        window.location.href = logoutRedirect;
+        window.location.href = "../../pages/login/index.html";
       }
     });
   }
