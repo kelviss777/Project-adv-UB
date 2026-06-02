@@ -7,16 +7,26 @@ body {
 
 .layout {
   display: flex;
+  align-items: stretch;
   min-height: 100vh;
+}
+
+app-sidebar {
+  display: flex;
+  align-self: stretch;
 }
 
 .content {
   flex: 1;
-  padding: 32px;
+  padding: 60px;
 }
 
 @media (max-width: 900px) {
   .layout {
     flex-direction: column;
+  }
+
+  .layout .content {
+    padding-top: calc(var(--sidebar-mobile-bar, 56px) + 24px);
   }
 }
