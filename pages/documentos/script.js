@@ -161,3 +161,46 @@ btnExcluir.addEventListener('click', () => {
     modalVisualizar.close();
   }
 });
+
+// --- ELEMENTOS DOS FILTROS ---
+const inputBusca = document.getElementById('busca');
+const selectFiltroTipo = document.getElementById('filtro-tipo');
+
+// --- FUNÇÃO DE FILTRAGEM ---
+function filtrarTabela() {
+  const termoBusca = inputBusca.value.toLowerCase().trim();
+  const tipoSelecionado = selectFiltroTipo.value;
+
+  // Pega todas as linhas de dados do corpo da tabela
+  const linhas = corpoTabela.querySelectorAll('tr');
+
+  linhas.forEach(linha => {
+    const tdDados = linha.querySelector('td[data-nome]');
+    
+    // Se a linha acabou de ser criada e ainda não tem o tdDados estruturado, ignora para não quebrar
+    if (!tdDados) return;
+
+    // Captura os dados mapeados para a busca (tudo em minúsculo para ignorar case-sensitive)
+    const nomeDocumento = tdDados.dataset.nome.toLowerCase();
+    const numeroProcesso = tdDados.dataset.processo.toLowerCase();
+    const tipoDocumento = tdDados.dataset.tipo;
+
+    // Regra 1: Bate com o termo digitado? (Busca no Nome OU no Número do Processo)
+    const bateBusca = nomeDocumento.includes(termoBusca) || numeroProcesso.includes(termoBusca);
+
+    // Regra 2: Bate com o tipo selecionado? (Se for "Todos", o valor é vazio, então sempre bate)
+    const bateTipo = tipoSelecionado === "" || tipoDocumento === tipoSelecionado;
+
+    // Se passar nos dois filtros, mostra a linha. Se não, esconde.
+    if (bateBusca && bateTipo) {
+      linha.style.display = ''; // Volta ao padrão do CSS (table-row)
+    } else {
+      linha.style.display = 'none'; // Esconde a linha
+    }
+  });
+}
+
+// --- EVENTOS ---
+// O evento 'input' detecta digitação, colagem de texto e quando o usuário limpa o campo clicando no 'X'
+inputBusca.addEventListener('input', filtrarTabela);
+selectFiltroTipo.addEventListener('change', filtrarTabela);
