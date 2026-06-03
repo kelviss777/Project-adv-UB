@@ -85,7 +85,7 @@ let processos = [
     situacao: 'Arquivado',
     ultimaAtualizacao: '20/05/2025',
     movimentacoes: [
-      { data: '20/05/2025 09:00', descricao: 'Processo encerrado com êxito — arquivado definitivamente', responsavel: 'Juiz Dr. Roberto Souza', cargo: 'Magistrado' },
+      { data: '20/05/2025 09:00', descricao: 'Processo encerrado com êxito - arquivado definitivamente', responsavel: 'Juiz Dr. Roberto Souza', cargo: 'Magistrado' },
     ],
     documentos: [
       { nome: 'Sentença Final.pdf', data: '20/05/2025' },
@@ -314,7 +314,7 @@ function abrirDetalhes(id) {
   const diasAberto = Math.floor((hoje - abertura) / (1000 * 60 * 60 * 24));
 
   const campos = [
-    { label: 'Número do Processo', valor: `<span class="numero-copiavel" data-numero="${p.numero}" title="Clique para copiar">${p.numero} <span class="copy-hint"></span></span>` },
+    { label: 'Número do Processo', valor: `<span class="numero-copiavel" data-numero="${p.numero}" title="Clique para copiar">${p.numero} <span class="copy-hint">📋</span></span>` },
     { label: 'Cliente',            valor: p.cliente },
     { label: 'CPF/CNPJ',                valor: p.cpf },
     { label: 'Área',               valor: p.area },
@@ -614,7 +614,7 @@ function renderTimeline(movs) {
           <span class="cargo-badge">${m.cargo || '—'}</span>
         </div>
         <p class="timeline-descricao">${m.descricao}</p>
-        <span class="timeline-responsavel">👤 ${m.responsavel}</span>
+        <span class="timeline-responsavel">🧑‍⚖️ ${m.responsavel}</span>
       </div>
     </div>
   `).join('');
