@@ -19,7 +19,9 @@
             <p class="dashboard__subtitle">Visão geral do escritório — processos, prazos, audiências e tarefas em tempo real.</p>
           </header>
 
-          <div class="dashboard__kpi-grid">
+          <div class="kpi-carousel">
+            <div class="kpi-carousel__viewport">
+              <div class="dashboard__kpi-grid kpi-carousel__track" id="kpiCarouselTrack">
             <article class="kpi-card kpi-card--cyan">
               <div class="kpi-card__icon" aria-hidden="true">⚖</div>
               <p class="kpi-card__label">Processos ativos</p>
@@ -47,6 +49,27 @@
               <p class="kpi-card__value">12</p>
               <p class="kpi-card__hint">4 com prioridade alta</p>
             </article>
+              </div>
+            </div>
+
+            <div class="kpi-carousel__nav" aria-label="Navegação dos indicadores">
+              <button
+                type="button"
+                class="kpi-carousel__arrow kpi-carousel__arrow--prev"
+                aria-label="Indicador anterior"
+                disabled
+              >
+                <span aria-hidden="true">&#8249;</span>
+              </button>
+              <div class="kpi-carousel__bullets" id="kpiCarouselBullets"></div>
+              <button
+                type="button"
+                class="kpi-carousel__arrow kpi-carousel__arrow--next"
+                aria-label="Próximo indicador"
+              >
+                <span aria-hidden="true">&#8250;</span>
+              </button>
+            </div>
           </div>
 
           <div class="dashboard__panels">
@@ -67,7 +90,7 @@
               <ul class="feed-list">
                 <li class="feed-item">
                   <div class="feed-item__meta">
-                    <span class="feed-item__tag" style="--tag-color: #22d3ee">Processo</span>
+                    <span class="feed-item__tag feed-item__tag--processo">Processo</span>
                     <time class="feed-item__time">Há 12 min</time>
                   </div>
                   <p class="feed-item__text">
@@ -76,7 +99,7 @@
                 </li>
                 <li class="feed-item">
                   <div class="feed-item__meta">
-                    <span class="feed-item__tag" style="--tag-color: #a78bfa">Audiência</span>
+                    <span class="feed-item__tag feed-item__tag--audiencia">Audiência</span>
                     <time class="feed-item__time">Há 1 h</time>
                   </div>
                   <p class="feed-item__text">
@@ -85,7 +108,7 @@
                 </li>
                 <li class="feed-item">
                   <div class="feed-item__meta">
-                    <span class="feed-item__tag" style="--tag-color: #34d399">Tarefa</span>
+                    <span class="feed-item__tag feed-item__tag--tarefa">Tarefa</span>
                     <time class="feed-item__time">Há 3 h</time>
                   </div>
                   <p class="feed-item__text">
@@ -94,7 +117,7 @@
                 </li>
                 <li class="feed-item">
                   <div class="feed-item__meta">
-                    <span class="feed-item__tag" style="--tag-color: #fbbf24">Prazo</span>
+                    <span class="feed-item__tag feed-item__tag--prazo">Prazo</span>
                     <time class="feed-item__time">Ontem</time>
                   </div>
                   <p class="feed-item__text">

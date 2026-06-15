@@ -1,8 +1,71 @@
 (function () {
+  setupKpiCarousel();
+  setupChart();
+})();
+
+function setupKpiCarousel() {
+  const track = document.getElementById("kpiCarouselTrack");
+  const bulletsContainer = document.getElementById("kpiCarouselBullets");
+  const prevBtn = document.querySelector(".kpi-carousel__arrow--prev");
+  const nextBtn = document.querySelector(".kpi-carousel__arrow--next");
+
+  if (!track || !bulletsContainer) return;
+
+  const cards = track.querySelectorAll(".kpi-card");
+  if (!cards.length) return;
+
+  let current = 0;
+  const mobileQuery = window.matchMedia("(max-width: 767px)");
+
+  function updateArrows() {
+    if (!prevBtn || !nextBtn) return;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === cards.length - 1;
+  }
+
+  function updateBullets() {
+    bulletsContainer.querySelectorAll(".kpi-carousel__bullet").forEach((bullet, index) => {
+      bullet.classList.toggle("is-active", index === current);
+      bullet.setAttribute("aria-current", index === current ? "true" : "false");
+    });
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, cards.length - 1));
+
+    if (mobileQuery.matches) {
+      track.style.transform = `translateX(-${current * 100}%)`;
+    } else {
+      track.style.transform = "";
+    }
+
+    updateBullets();
+    updateArrows();
+  }
+
+  bulletsContainer.innerHTML = "";
+  cards.forEach((_, index) => {
+    const bullet = document.createElement("button");
+    bullet.type = "button";
+    bullet.className = "kpi-carousel__bullet";
+    bullet.setAttribute("aria-label", `Indicador ${index + 1} de ${cards.length}`);
+    bullet.setAttribute("aria-current", index === 0 ? "true" : "false");
+    bullet.addEventListener("click", () => goTo(index));
+    bulletsContainer.appendChild(bullet);
+  });
+
+  prevBtn?.addEventListener("click", () => goTo(current - 1));
+  nextBtn?.addEventListener("click", () => goTo(current + 1));
+
+  mobileQuery.addEventListener("change", () => goTo(current));
+  goTo(0);
+}
+
+function setupChart() {
   const chartData = [
-    { label: "Em andamento", value: 14, color: "#22d3ee" },
-    { label: "Aguardando", value: 6, color: "#a78bfa" },
-    { label: "Concluídos", value: 4, color: "#34d399" },
+    { label: "Em andamento", value: 14, color: "#16a34a" },
+    { label: "Aguardando", value: 6, color: "#ca8a04" },
+    { label: "Concluídos", value: 4, color: "#1d4ed8" },
   ];
 
   const canvas = document.getElementById("processChart");
@@ -57,7 +120,7 @@
       ctx.fillStyle = gradient;
       ctx.fill();
 
-      ctx.strokeStyle = "rgba(7, 11, 20, 0.6)";
+      ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 2;
       ctx.stroke();
 
@@ -66,7 +129,7 @@
 
     ctx.beginPath();
     ctx.arc(center, center, innerRadius - 1, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(7, 11, 20, 0.95)";
+    ctx.fillStyle = "#ffffff";
     ctx.fill();
   }
 
@@ -84,7 +147,7 @@
         (item) =>
           `<li>
             <span class="chart-legend__label">
-              <span class="chart-legend__dot" style="background:${item.color};box-shadow:0 0 8px ${item.color}"></span>
+              <span class="chart-legend__dot" style="background:${item.color}"></span>
               ${item.label}
             </span>
             <span class="chart-legend__value">${item.value}</span>
@@ -95,4 +158,4 @@
 
   drawChart();
   window.addEventListener("resize", drawChart);
-})();
+}

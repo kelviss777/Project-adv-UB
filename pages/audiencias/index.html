@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tela do status de audiências do usuário advogado" />
+    <title>Audiências | Projeto ADV UB</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/global.css" />
+    <link rel="stylesheet" href="../../Components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="audiencias.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <app-sidebar current="audiencias" root-prefix="../../"></app-sidebar>
+
+      <main class="content">
+        <section class="main-content">
+          <header class="page-header">
+            <div class="header-titles">
+              <h1>Audiências</h1>
+              <p>Acompanhe seus prazos, compromissos e audiências agendadas.</p>
+            </div>
+            <div class="header-actions" style="display: flex; gap: 1rem">
+              <a
+                href="../../pages/agenda/index.html"
+                class="btn-secondary"
+                style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem"
+              >
+                <i class="bx bx-calendar"></i> Agenda
+              </a>
+
+              <button class="btn-primary" onclick="abrirModal('modalNovoProcesso')">
+                <i class="bx bx-plus"></i> Novo processo
+              </button>
+            </div>
+          </header>
+
+          <div class="filters-container">
+            <div class="filter-group">
+              <label>Data da audiência</label>
+              <div class="date-picker">
+                <input type="text" placeholder="Data inicial" />
+                <span>até</span>
+                <input type="text" placeholder="Data final" />
+                <i class="bx bx-calendar"></i>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label>Status</label>
+              <select>
+                <option>Todos</option>
+                <option>Agendada</option>
+                <option>Realizada</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Vara / Instância</label>
+              <select>
+                <option>Todas</option>
+                <option>1ª Vara</option>
+              </select>
+            </div>
+
+            <button class="btn-secondary">
+              <i class="bx bx-refresh"></i> Limpar filtros
+            </button>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Data / Hora</th>
+                  <th>Processo</th>
+                  <th>Parte adversa</th>
+                  <th>Vara / Instância</th>
+                  <th>Tipo</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="icon-box"><i class="bx bx-calendar"></i></div></td>
+                  <td>
+                    <div class="main-text">27/05/2026</div>
+                    <div class="sub-text">09:00</div>
+                  </td>
+                  <td>
+                    <div class="main-text">0001234-56.2024.8.26.0000</div>
+                    <div class="sub-text">Ação de Cobrança</div>
+                  </td>
+                  <td><div class="main-text">Universidade Brasil</div></td>
+                  <td>
+                    <div class="main-text">3ª Vara Cível</div>
+                    <div class="sub-text">1º Grau</div>
+                  </td>
+                  <td><div class="main-text">Audiência de<br />Conciliação</div></td>
+                  <td><span class="status badge-agendada">Agendada</span></td>
+                  <td><button class="btn-action"><i class="bx bx-show"></i></button></td>
+                </tr>
+
+                <tr>
+                  <td><div class="icon-box"><i class="bx bx-calendar"></i></div></td>
+                  <td>
+                    <div class="main-text">28/05/2026</div>
+                    <div class="sub-text">14:00</div>
+                  </td>
+                  <td>
+                    <div class="main-text">0012345-67.2024.8.26.0000</div>
+                    <div class="sub-text">Ação Trabalhista</div>
+                  </td>
+                  <td><div class="main-text">Ricardo Da Silva Alves</div></td>
+                  <td>
+                    <div class="main-text">2ª Vara do Trabalho</div>
+                    <div class="sub-text">1º Grau</div>
+                  </td>
+                  <td><div class="main-text">Instrução e<br />Julgamento</div></td>
+                  <td><span class="status badge-confirmada">Confirmada</span></td>
+                  <td><button class="btn-action"><i class="bx bx-show"></i></button></td>
+                </tr>
+
+                <tr>
+                  <td><div class="icon-box"><i class="bx bx-calendar"></i></div></td>
+                  <td>
+                    <div class="main-text">03/06/2026</div>
+                    <div class="sub-text">10:30</div>
+                  </td>
+                  <td>
+                    <div class="main-text">0023456-78.2024.8.26.0000</div>
+                    <div class="sub-text">Ação de Alimentos</div>
+                  </td>
+                  <td><div class="main-text">Edson Company Colalto Junior</div></td>
+                  <td>
+                    <div class="main-text">2ª Vara de Família</div>
+                    <div class="sub-text">1º Grau</div>
+                  </td>
+                  <td><div class="main-text">Conciliação</div></td>
+                  <td><span class="status badge-realizada">Realizada</span></td>
+                  <td><button class="btn-action"><i class="bx bx-show"></i></button></td>
+                </tr>
+
+                <tr>
+                  <td><div class="icon-box"><i class="bx bx-calendar"></i></div></td>
+                  <td>
+                    <div class="main-text">10/06/2026</div>
+                    <div class="sub-text">09:30</div>
+                  </td>
+                  <td>
+                    <div class="main-text">0034567-89.2024.8.26.0000</div>
+                    <div class="sub-text">Indenização por Danos</div>
+                  </td>
+                  <td><div class="main-text">José Maria da Silva</div></td>
+                  <td>
+                    <div class="main-text">4ª Vara Cível</div>
+                    <div class="sub-text">1º Grau</div>
+                  </td>
+                  <td><div class="main-text">Instrução e<br />Julgamento</div></td>
+                  <td><span class="status badge-agendada">Agendada</span></td>
+                  <td><button class="btn-action"><i class="bx bx-show"></i></button></td>
+                </tr>
+
+                <tr>
+                  <td><div class="icon-box"><i class="bx bx-calendar"></i></div></td>
+                  <td>
+                    <div class="main-text">12/06/2026</div>
+                    <div class="sub-text">16:00</div>
+                  </td>
+                  <td>
+                    <div class="main-text">0045678-90.2024.8.26.0000</div>
+                    <div class="sub-text">Revisional de Contrato</div>
+                  </td>
+                  <td><div class="main-text">Thiago Duarte de Oliveira</div></td>
+                  <td>
+                    <div class="main-text">7ª Vara Cível</div>
+                    <div class="sub-text">1º Grau</div>
+                  </td>
+                  <td><div class="main-text">Conciliação</div></td>
+                  <td><span class="status badge-cancelada">Cancelada</span></td>
+                  <td><button class="btn-action"><i class="bx bx-show"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-overlay" id="modalNovoProcesso">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Novo Processo</h2>
+          <button class="btn-close" onclick="fecharModal('modalNovoProcesso')">
+            <i class="bx bx-x"></i>
+          </button>
+        </div>
+
+        <form>
+          <div class="form-group">
+            <label>Número do Processo</label>
+            <input type="text" placeholder="0000000-00.0000.0.00.0000" />
+          </div>
+
+          <div class="form-group">
+            <label>Parte Adversa / Cliente</label>
+            <input type="text" placeholder="Nome da parte envolvida" />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem">
+            <div class="form-group">
+              <label>Vara / Instância</label>
+              <input type="text" placeholder="Ex: 3ª Vara Cível" />
+            </div>
+            <div class="form-group">
+              <label>Status inicial</label>
+              <select>
+                <option>Ativo</option>
+                <option>Aguardando citação</option>
+                <option>Arquivado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-secondary" onclick="fecharModal('modalNovoProcesso')">
+              Cancelar
+            </button>
+            <button type="submit" class="btn-primary">Cadastrar processo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../Components/sidebar/sidebar.js"></script>
+    <script src="audiencias.js"></script>
+  </body>
+</html>

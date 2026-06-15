@@ -17,6 +17,15 @@ function resolveCurrentPage(explicitCurrent, links) {
   const href = window.location.href.replace(/\\/g, "/").toLowerCase();
 
   for (const link of links) {
+    if (link.match) {
+      const match = link.match.toLowerCase();
+      if (path.includes(match) || href.includes(match)) {
+        return link.key;
+      }
+    }
+  }
+
+  for (const link of links) {
     if (path.includes(`/pages/${link.key}/`) || href.includes(`/pages/${link.key}/`)) {
       return link.key;
     }
@@ -122,6 +131,11 @@ class AppSidebar extends HTMLElement {
         href: `${rootPrefix}pages/audiencias/index.html`,
       },
       {
+        key: "agenda",
+        label: "Agenda",
+        href: `${rootPrefix}pages/agenda/index.html`,
+      },
+      {
         key: "processos",
         label: "Processos",
         href: `${rootPrefix}pages/processos/index.html`,
@@ -170,8 +184,8 @@ class AppSidebar extends HTMLElement {
                 />
               </div>
               <div class="sidebar__logo-text">
-                <strong>Project Adv</strong>
-                <small>Painel</small>
+                <strong>JURIS GESTOR</strong>
+                <small>Processos Jurídicos</small>
               </div>
             </div>
             <button class="sidebar__close" type="button" aria-label="Fechar menu">&times;</button>
