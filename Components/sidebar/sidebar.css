@@ -72,14 +72,14 @@
 .sidebar__logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px;
+  gap: 10px;
+  padding: 4px;
 }
 
 .sidebar__logo-badge-wrap {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;
   background: linear-gradient(135deg, #34d399 0%, #22c55e 100%);
@@ -91,7 +91,7 @@
   display: block;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.55);
+  transform: scale(1.35);
 }
 
 .sidebar__logo-text {
