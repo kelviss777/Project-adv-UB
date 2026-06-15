@@ -127,7 +127,7 @@ class AppSidebar extends HTMLElement {
       },
       {
         key: "audiencias",
-        label: "Audiencias",
+        label: "Audiências",
         href: `${rootPrefix}pages/audiencias/index.html`,
       },
       {
@@ -147,7 +147,7 @@ class AppSidebar extends HTMLElement {
       },
       {
         key: "configuracoes",
-        label: "Configuracoes",
+        label: "Configurações",
         href: `${rootPrefix}pages/configuracoes/index.html`,
       },
     ];
