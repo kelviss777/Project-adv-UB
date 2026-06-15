@@ -58,7 +58,7 @@ function bindSidebarEvents(sidebarElement) {
       const shouldLogout = window.confirm("Deseja realmente sair?");
 
       if (shouldLogout) {
-        window.location.href = "../../pages/login/index.html";
+        window.location.href = "../../pages/Login/index.html";
       }
     });
   }
