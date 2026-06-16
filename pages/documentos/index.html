@@ -13,6 +13,10 @@
       <app-sidebar current="projetos" root-prefix="../../"></app-sidebar>
 
       <main class="content">
+
+        <!-- TOAST -->
+        <div id="toast" class="toast"></div>
+
         <div class="cabecalho">
           <h1>Documentos</h1>
           <p>Organize os documentos vinculados aos processos.</p>
@@ -131,6 +135,9 @@
               <option value="Petição">Petição</option>
             </select>
           </div>
+          <div class="filtros-limpar">
+            <button id="btn-limpar-filtros">&#x2715; Limpar filtros</button>
+          </div>
         </div>
 
         <!-- TABELA -->
@@ -149,16 +156,7 @@
             </thead>
             <tbody id="corpo-tabela">
               <tr>
-                <td
-                  data-nome="Procuração - Maria Souza"
-                  data-tipo="Procuração"
-                  data-processo="0098765-12.2024.8.26.0000"
-                  data-relacionado=""
-                  data-data="10/03/2025"
-                  data-status="enviado"
-                  data-arquivo-nome="procuracao_maria.pdf"
-                  data-arquivo-url=""
-                >Procuração - Maria Souza</td>
+                <td data-nome="Procuração - Maria Souza" data-tipo="Procuração" data-processo="0098765-12.2024.8.26.0000" data-relacionado="" data-data="10/03/2025" data-status="enviado" data-arquivo-nome="procuracao_maria.pdf" data-arquivo-url="">Procuração - Maria Souza</td>
                 <td>Procuração</td>
                 <td>0098765-12.2024.8.26.0000</td>
                 <td>10/03/2025</td>
@@ -166,16 +164,7 @@
                 <td><button class="btn-visualizar">Visualizar</button></td>
               </tr>
               <tr>
-                <td
-                  data-nome="Contrato de Prestação de Serviços"
-                  data-tipo="Contrato"
-                  data-processo="0011223-34.2024.8.26.0000"
-                  data-relacionado=""
-                  data-data="15/03/2025"
-                  data-status="enviado"
-                  data-arquivo-nome="contrato_prestacao.pdf"
-                  data-arquivo-url=""
-                >Contrato de Prestação de Serviços</td>
+                <td data-nome="Contrato de Prestação de Serviços" data-tipo="Contrato" data-processo="0011223-34.2024.8.26.0000" data-relacionado="" data-data="15/03/2025" data-status="enviado" data-arquivo-nome="contrato_prestacao.pdf" data-arquivo-url="">Contrato de Prestação de Serviços</td>
                 <td>Contrato</td>
                 <td>0011223-34.2024.8.26.0000</td>
                 <td>15/03/2025</td>
@@ -183,16 +172,7 @@
                 <td><button class="btn-visualizar">Visualizar</button></td>
               </tr>
               <tr>
-                <td
-                  data-nome="Comprovante de Pagamento - Abril"
-                  data-tipo="Comprovante"
-                  data-processo="0044556-67.2024.8.26.0000"
-                  data-relacionado=""
-                  data-data="02/04/2025"
-                  data-status="enviado"
-                  data-arquivo-nome="comprovante_abril.pdf"
-                  data-arquivo-url=""
-                >Comprovante de Pagamento - Abril</td>
+                <td data-nome="Comprovante de Pagamento - Abril" data-tipo="Comprovante" data-processo="0044556-67.2024.8.26.0000" data-relacionado="" data-data="02/04/2025" data-status="enviado" data-arquivo-nome="comprovante_abril.pdf" data-arquivo-url="">Comprovante de Pagamento - Abril</td>
                 <td>Comprovante</td>
                 <td>0044556-67.2024.8.26.0000</td>
                 <td>02/04/2025</td>
@@ -200,16 +180,7 @@
                 <td><button class="btn-visualizar">Visualizar</button></td>
               </tr>
               <tr>
-                <td
-                  data-nome="Petição Inicial - Carlos Lima"
-                  data-tipo="Petição"
-                  data-processo="0077889-90.2024.8.26.0000"
-                  data-relacionado=""
-                  data-data="18/04/2025"
-                  data-status="enviado"
-                  data-arquivo-nome="peticao_carlos.pdf"
-                  data-arquivo-url=""
-                >Petição Inicial - Carlos Lima</td>
+                <td data-nome="Petição Inicial - Carlos Lima" data-tipo="Petição" data-processo="0077889-90.2024.8.26.0000" data-relacionado="" data-data="18/04/2025" data-status="enviado" data-arquivo-nome="peticao_carlos.pdf" data-arquivo-url="">Petição Inicial - Carlos Lima</td>
                 <td>Petição</td>
                 <td>0077889-90.2024.8.26.0000</td>
                 <td>18/04/2025</td>
@@ -217,16 +188,7 @@
                 <td><button class="btn-visualizar">Visualizar</button></td>
               </tr>
               <tr>
-                <td
-                  data-nome="Contrato de Honorários - Ana Paula"
-                  data-tipo="Contrato"
-                  data-processo="0033221-10.2024.8.26.0000"
-                  data-relacionado=""
-                  data-data="05/05/2025"
-                  data-status="enviado"
-                  data-arquivo-nome="contrato_ana.pdf"
-                  data-arquivo-url=""
-                >Contrato de Honorários - Ana Paula</td>
+                <td data-nome="Contrato de Honorários - Ana Paula" data-tipo="Contrato" data-processo="0033221-10.2024.8.26.0000" data-relacionado="" data-data="05/05/2025" data-status="enviado" data-arquivo-nome="contrato_ana.pdf" data-arquivo-url="">Contrato de Honorários - Ana Paula</td>
                 <td>Contrato</td>
                 <td>0033221-10.2024.8.26.0000</td>
                 <td>05/05/2025</td>

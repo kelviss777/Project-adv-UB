@@ -52,6 +52,31 @@
   outline: 2px solid #1e293b;
 }
 
+.filtros-limpar {
+  display: flex;
+  align-items: flex-end;
+  flex: 0 !important;
+  min-width: unset !important;
+}
+
+#btn-limpar-filtros {
+  display: none;
+  background-color: #fff;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  height: 50px;
+  padding: 0 16px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#btn-limpar-filtros:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
 .tabela-wrapper {
   background-color: #fff;
   border-radius: 8px;
@@ -88,11 +113,22 @@ th {
   border-bottom: 2px solid #e2e8f0;
   font-size: 14px;
   color: #475569;
+  user-select: none;
 }
+
+th.ordenado-asc::after  { content: ' ▲'; font-size: 11px; }
+th.ordenado-desc::after { content: ' ▼'; font-size: 11px; }
 
 td {
   padding: 14px;
   border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.msg-vazio {
+  text-align: center;
+  color: #94a3b8;
+  padding: 32px 14px;
   font-size: 14px;
 }
 
@@ -136,8 +172,37 @@ body {
   overflow-y: auto;
 }
 
-/* ── MODAIS ──────────────────────────────────────────────── */
+/* ── TOAST ───────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
 
+.toast--visivel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toast--sucesso {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+.toast--erro {
+  background-color: #dc2626;
+  color: #fff;
+}
+
+/* ── MODAIS ──────────────────────────────────────────────── */
 #modal-novo-documento,
 #modal-visualizar {
   width: 50%;
